@@ -11,7 +11,7 @@ font = cv2.FONT_HERSHEY_TRIPLEX
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # (*'DIVX')
 
 #                       filename    codec  FPS  output resolution
-out = cv2.VideoWriter('output.avi', fourcc, 15, (1280, 720))
+out = cv2.VideoWriter('output.avi', fourcc, 20, (1280, 720))
 
 while True:
     re, img = cam.read()  # setting the camera feed to return an image
@@ -21,7 +21,6 @@ while True:
     #           video      string             position    font size   colour  stroke
     cv2.putText(img, "You are being recorded", (250, 400), font, 2, (255, 0, 0), 2, cv2.LINE_AA)
     cv2.putText(img, str(datetime.now()), (950, 650), font, .5, (255, 255, 255), 1, cv2.LINE_AA)
-
     cv2.imshow('Shea Video', img)  # displays camera feed window
 
     out.write(img)
