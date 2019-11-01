@@ -40,6 +40,7 @@ def select4():
 button4 = PushButton(app, command=select4)
 
 
+
 def printer(record):
     for row in record:
         print(row)
