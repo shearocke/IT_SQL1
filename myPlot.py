@@ -8,6 +8,6 @@ plt.ylabel('This is the Y label')
 
 plt.title('This is the title!')
 
-plt.broken_barh(xlist, ylist)  # colour, s = square, o = circle, ^ = triangle, -- = dotted line,
+plt.barh(xlist, ylist)  # colour, s = square, o = circle, ^ = triangle, -- = dotted line,
 
 plt.show()
