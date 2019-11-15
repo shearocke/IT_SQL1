@@ -8,6 +8,6 @@ plt.ylabel('This is the Y label')
 
 plt.title('This is the title!')
 
-plt.barh(xlist, ylist)  # colour, s = square, o = circle, ^ = triangle, -- = dotted line,
+plt.plot(xlist, ylist, "r--")  # colour, s = square, o = circle, ^ = triangle, -- = dotted line,
 
 plt.show()
