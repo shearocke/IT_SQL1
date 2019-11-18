@@ -20,8 +20,6 @@ plt.ylabel('Number of names')
 
 plt.title('Top 100 Girl names')
 
-
-graph = plt.barh(xlist, ylist)
-
+plt.barh(xlist, ylist, color='pink')
 
 plt.show()
