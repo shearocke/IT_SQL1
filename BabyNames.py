@@ -2,8 +2,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 #Constants for fontsizing
-SMALL_SIZE = 3
-MEDIUM_SIZE = 8
+MEDIUM_SIZE = 6.5
 DEFAULT_SIZE = 12
 
 database = 'BabyNames2018.db'  # create variable name for db
@@ -16,19 +15,25 @@ xlist = []
 ylist = []
 
 plt.rc('font', size=DEFAULT_SIZE)  # default fontsize
-plt.rc('xtick', labelsize=MEDIUM_SIZE)  # fontsize of the tick labels
-plt.rc('ytick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
+plt.rc('xtick', labelsize=MEDIUM_SIZE)  # fontsize of the x tick labels
+plt.rc('ytick', labelsize=MEDIUM_SIZE)  # fontsize of the y tick labels
 
-# for each row in the query, append the data of the first value for the xlist and the second value for the ylist
+plt.xticks(rotation='vertical')  # rotates the x tick labels
+
+# for each row in the query
 for row in record:
     xlist.append(row[0])
     ylist.append(row[1])
 
+# Sets the X and Y titles
 plt.xlabel('Names')
 plt.ylabel('Number of names')
 
-plt.title('Top 100 Girl names')
+# Sets the title
+plt.title('Top 100 Girl Names')
 
-plt.barh(xlist, ylist, color='pink')
+# Sets the bar graph values and colour
+plt.bar(xlist, ylist, color='pink')
 
+# Shows the graph
 plt.show()
