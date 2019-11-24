@@ -142,7 +142,7 @@ def select17():
     printer(record)
 
 
-button17 = PushButton(app, text="20017 Fatal Crashes", command=select17)
+button17 = PushButton(app, text="2017 Fatal Crashes", command=select17)
 
 
 def select18():
@@ -150,7 +150,7 @@ def select18():
     printer(record)
 
 
-button18 = PushButton(app, text="20018 Fatal Crashes", command=select18)
+button18 = PushButton(app, text="2018 Fatal Crashes", command=select18)
 
 
 def printer(record):
