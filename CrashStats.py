@@ -12,7 +12,10 @@ fatalCrash_box = Box(app, grid=[0, 1, 2, 1], border=True)  # creates a box with 
 Text(fatalCrash_box, text="Sum of Fatal Accidents by Year")  # adds text to the box
 
 graph_box = Box(app, grid=[3, 1, 2, 1], border=True)  # creates a box with a border in the grid reference that spans specified amount of columns/rows
-Text(graph_box, text="Graphs of the Yearly Fatal Accidents Involving Trucks by Region") #adds text to the box
+Text(graph_box, text="Graphs of the Yearly Fatal Accidents Involving Trucks by Region") # adds text to the box
+
+region_box = Box(app, grid=[5, 1], border=True)  # creates a box with a border in the grid reference
+Text(region_box, text="Regional Crash Data for 2018")  # adds text to the box
 
 
 def select1():
@@ -721,10 +724,63 @@ def graph18():
 
 button36 = PushButton(app, grid=[4, 10], text="2018", command=graph18)
 
+
+def region1():
+    record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
+                          "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
+                          "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'Southern'")
+    regionprinter(record)
+
+
+button37 = PushButton(app, grid=[5, 2], text="Southern Region", command=region1)
+
+
+def region2():
+    record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
+                          "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
+                          "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'Brisbane'")
+    regionprinter(record)
+
+
+button38 = PushButton(app, grid=[5, 3], text="Brisbane Region", command=region2)
+
+
+def region3():
+    record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
+                          "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
+                          "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'Central'")
+    regionprinter(record)
+
+
+button39 = PushButton(app, grid=[5, 4], text="Central Region", command=region3)
+
+
+def region4():
+    record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
+                          "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
+                          "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'Northern'")
+    regionprinter(record)
+
+
+button40 = PushButton(app, grid=[5, 5], text="Northern Region", command=region4)
+
+
+def region5():
+    record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
+                          "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
+                          "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'South Eastern'")
+    regionprinter(record)
+
+
+button41 = PushButton(app, grid=[5, 6], text="South Eastern Region", command=region5)
+
+
+def regionprinter(record):
+    print("Year, Region, Severity, M, T, B, Count")
+    for row in record:
+        print(row)
+
+
 app.display()
 conn.close()
 
-# `vehicleinvolvement`(`Crash_Year`, `Crash_Police_Region`, `Crash_Severity`, `Involving_Motorcycle_Moped`,
-#                    `Involving_Truck`, `Involving_Bus`, `Count_Crashes`, `Count_Casualty_Fatality`,
-#                   `Count_Casualty_Hospitalised`, `Count_Casualty_MedicallyTreated`, `Count_Casualty_MinorInjury`,
-#                   `Count_Casualty_All`);
