@@ -12,7 +12,7 @@ fatalCrash_box = Box(app, grid=[0, 1, 2, 1], border=True)  # creates a box with 
 Text(fatalCrash_box, text="Sum of Fatal Accidents by Year")  # adds text to the box
 
 graph_box = Box(app, grid=[3, 1, 2, 1], border=True)  # creates a box with a border in the grid reference that spans specified amount of columns/rows
-Text(graph_box, text="Graphs of the Yearly Fatal Accidents Involving Trucks by Region") # adds text to the box
+Text(graph_box, text="Graphs of the Yearly Fatal Accidents Involving Trucks by Region")  # adds text to the box
 
 region_box = Box(app, grid=[5, 1], border=True)  # creates a box with a border in the grid reference
 Text(region_box, text="Regional Crash Data for 2018")  # adds text to the box
