@@ -18,11 +18,13 @@ region_box = Box(app, grid=[5, 1], border=True)  # creates a box with a border i
 Text(region_box, text="Regional Crash Data for 2018")  # adds text to the box
 
 
-def select1():
+# Creates definition for 18 queries
+def select1():  # excutes query and prints the query
     record = conn.execute("SELECT sum(Count_Casualty_Fatality) FROM vehicleinvolvement WHERE Crash_Year = '2001'")
     printer(record)
 
 
+# creates a button in the grid reference with the text and when clicked executes define variable above
 button = PushButton(app, grid=[0, 2], text="2001 Fatal Crashes", command=select1)
 
 
@@ -162,11 +164,12 @@ def select18():
 button18 = PushButton(app, grid=[1, 10], text="2018 Fatal Crashes", command=select18)
 
 
-def printer(record):
-    for row in record:
+def printer(record):  # defines printer to be used in the buttons above
+    for row in record:  # for each row in the query print the row
         print(row)
 
 
+# define 18 graphs
 def graph1():
     record = conn.execute("SELECT Crash_Police_Region, sum(Count_Casualty_Fatality) FROM vehicleinvolvement "
                           "WHERE Involving_Truck = 'Yes' AND Crash_Year = '2001' GROUP BY Crash_Police_Region LIMIT 5")
@@ -195,6 +198,7 @@ def graph1():
     plt.show()
 
 
+# creates a button in the gird reference with the text and when clicked execute graph
 button19 = PushButton(app, grid=[3, 2], text="2001", command=graph1)
 
 
@@ -725,13 +729,15 @@ def graph18():
 button36 = PushButton(app, grid=[4, 10], text="2018", command=graph18)
 
 
-def region1():
+# Creates definition for 5 region queries
+def region1(): # executes query and prints
     record = conn.execute("SELECT Crash_Year, Crash_Police_Region, Crash_Severity, Involving_Motorcycle_Moped, "
                           "Involving_Truck, Involving_Bus, Count_Crashes FROM vehicleinvolvement "
                           "WHERE Crash_Year = '2018' AND Crash_Police_Region = 'Southern'")
     regionprinter(record)
 
 
+# creates a button in the gird reference with the text and when clicked execute region query
 button37 = PushButton(app, grid=[5, 2], text="Southern Region", command=region1)
 
 
@@ -775,9 +781,9 @@ def region5():
 button41 = PushButton(app, grid=[5, 6], text="South Eastern Region", command=region5)
 
 
-def regionprinter(record):
-    print("Year, Region, Severity, M, T, B, Count")
-    for row in record:
+def regionprinter(record):  # defines printer for the region buttons above
+    print("Year, Region, Severity, M, T, B, Count")  # prints the title for each column
+    for row in record:  # for each row in the query print row
         print(row)
 
 
